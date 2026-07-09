@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Alessandro Bordonali</title>
+  <meta name="description" content="Alessandro Bordonali — M.Sc. Computer Science, Università degli Studi di Milano." />
+  <meta name="theme-color" content="#1E1E1E" />
+
+  <link rel="icon" type="image/jpeg" href="assets/logo.jpg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            sans:    ['Inter', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            bg:     '#1E1E1E',
+            fg:     '#EEEEEE',
+            muted:  '#707070',
+            border: '#2e2e2e',
+            hi:     '#272727',
+            accent: '#4a8bc4',
+          },
+        },
+      },
+    };
+  </script>
+
+  <style type="text/tailwindcss">
+    /* ── display name (Cormorant, large) ── */
+    .name {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(3rem, 7vw, 4.6rem);
+      font-weight: 400;
+      line-height: 1.02;
+      letter-spacing: -0.015em;
+      color: #EEEEEE;
+    }
+
+    /* ── CV entry outer: owns the separator border + breathing room ── */
+    .entry-wrap {
+      @apply py-1.5 border-b border-border last:border-0;
+    }
+
+    /* ── CV entry inner: hover bg + grid layout ── */
+    .entry {
+      @apply grid -mx-3 px-3 py-4 rounded-md hover:bg-hi transition-colors duration-100;
+      grid-template-columns: 1fr;
+      gap: 0.1rem 2rem;
+    }
+
+    @media (min-width: 640px) {
+      .entry { grid-template-columns: 5rem 1fr; }
+    }
+
+    /* ── link style ── */
+    .lnk {
+      @apply text-accent underline underline-offset-[3px] decoration-[#2a2a2a]
+             hover:decoration-accent transition-colors duration-100;
+    }
+
+    /* ── section eyebrow ── */
+    .eyebrow {
+      @apply block text-[10px] font-semibold tracking-[0.2em] uppercase text-muted mb-7;
+    }
+  </style>
+</head>
+
+<body class="bg-bg text-fg font-sans antialiased text-[13.5px] leading-[1.72]">
+
+  <!-- ── thin accent stripe ── -->
+  <div class="h-px bg-accent opacity-50"></div>
+
+  <!-- ── sticky nav ── -->
+  <nav class="sticky top-0 z-50 bg-bg border-b border-border">
+    <div class="max-w-2xl mx-auto px-7 sm:px-10 h-11 flex items-center justify-between">
+      <!-- sloth logo as home anchor -->
+      <a href="#about" class="opacity-70 hover:opacity-100 transition-opacity">
+        <img src="assets/logo.jpg" alt="Home" class="h-6 w-6 rounded-full" />
+      </a>
+      <ul class="flex gap-3 sm:gap-6 list-none text-[11.5px] text-muted">
+        <li><a href="#education"  class="hover:text-fg transition-colors">Education</a></li>
+        <li><a href="#experience" class="hover:text-fg transition-colors">Experience</a></li>
+        <li><a href="#projects"   class="hover:text-fg transition-colors">Projects</a></li>
+        <li><a href="#contact"    class="hover:text-fg transition-colors">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="max-w-2xl mx-auto px-7 sm:px-10">
+
+    <!-- ════════════════════════════════════════════════════════
+         HERO — paper-title layout
+         name on the left, affiliation data on the right
+         like the top of an academic paper
+    ═══════════════════════════════════════════════════════════ -->
+    <section id="about" class="pt-14 pb-12 border-b border-border">
+
+      <!-- title block -->
+      <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-10">
+
+        <h1 class="name">
+          Alessandro<br/>Bordonali
+        </h1>
+
+        <!-- affiliation: right-side data column, like paper metadata -->
+        <div class="sm:text-right text-[11.5px] leading-[1.9] shrink-0">
+          <p class="text-fg font-medium">M.Sc. Computer Science</p>
+          <p class="text-muted">Università degli Studi di Milano</p>
+          <p class="text-muted">Milan, Italy · 2024–present</p>
+          <p class="mt-2">
+            <a href="mailto:alessandro.bordonali@studenti.unimi.it" class="lnk text-[11.5px]">alessandro.bordonali@studenti.unimi.it</a>
+          </p>
+        </div>
+      </div>
+
+      <!-- photo + bio -->
+      <div class="flex flex-col sm:flex-row gap-6 items-start">
+
+        <div class="shrink-0 mt-0.5">
+          <div class="w-[120px] h-[120px] rounded-xl overflow-hidden border border-border">
+            <img
+              src="assets/img/profile-photo.jpeg"
+              alt="Alessandro Bordonali"
+              class="w-full h-full object-cover scale-[1.8] origin-[50%_55%]"
+              onerror="this.replaceWith(document.getElementById('ph').content.cloneNode(true))"
+            />
+          </div>
+          <template id="ph">
+            <img src="assets/logo.jpg" alt="Alessandro Bordonali"
+                 class="w-[120px] h-[120px] rounded-xl object-cover border border-border opacity-80" />
+          </template>
+        </div>
+
+        <div>
+          <p class="text-fg/70 max-w-[440px] mb-5">
+            I got my B.Sc. in Computer Science from UniMI in 2024 and I'm now doing
+            my M.Sc. at the same place, working with
+            <a href="https://aislab.di.unimi.it" class="lnk">AISLab</a>
+            in the Department of Computer Science.
+            My research interests are multi-robot systems and computer vision.
+          </p>
+
+          <div class="flex flex-wrap gap-5 text-[12px] font-medium">
+            <a href="https://github.com/alek4" class="lnk">GitHub ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════════════════
+         EDUCATION
+    ═══════════════════════════════════════════════════════════ -->
+    <section id="education" class="py-12 border-b border-border">
+      <span class="eyebrow">Education</span>
+
+      <!-- copy this block for each degree -->
+      <div class="entry-wrap"><div class="entry">
+        <p class="text-[11px] text-muted tabular-nums sm:pt-[3px] leading-snug">
+          2024<br/>— now
+        </p>
+        <div>
+          <p class="font-medium text-fg">M.Sc. Computer Science</p>
+          <p class="text-muted text-[12px] mt-0.5">Università degli Studi di Milano</p>
+          <p class="text-muted text-[12.5px] mt-2 leading-relaxed">
+            Thesis: <em>TBD</em>
+          </p>
+        </div>
+      </div></div>
+
+      <div class="entry-wrap"><div class="entry">
+        <p class="text-[11px] text-muted tabular-nums sm:pt-[3px] leading-snug">
+          2021<br/>— 2024
+        </p>
+        <div>
+          <p class="font-medium text-fg">B.Sc. Computer Science</p>
+          <p class="text-muted text-[12px] mt-0.5">Università degli Studi di Milano</p>
+          <p class="text-muted text-[12.5px] mt-2 leading-relaxed">
+            Thesis: <em>Definizione e valutazione sperimentale di algoritmi per multi-agent path planning in applicazioni di monitoraggio ambientale con sistemi multi-robot</em>
+          </p>
+        </div>
+      </div></div>
+
+    </section>
+
+
+    <!-- ════════════════════════════════════════════════════════
+         EXPERIENCE
+    ═══════════════════════════════════════════════════════════ -->
+    <section id="experience" class="py-12 border-b border-border">
+      <span class="eyebrow">Experience</span>
+
+      <div class="entry-wrap"><div class="entry">
+        <p class="text-[11px] text-muted tabular-nums sm:pt-[3px] leading-snug">
+          2023<br/>— 2024
+        </p>
+        <div>
+          <p class="font-medium text-fg">B.Sc. Thesis</p>
+          <p class="text-muted text-[12px] mt-0.5">Università degli Studi di Milano</p>
+          <p class="text-muted text-[12.5px] mt-2 leading-relaxed">
+            Defined and experimentally evaluated path planning algorithms
+            for multi-agent environmental monitoring with multi-robot systems.
+          </p>
+        </div>
+      </div></div>
+
+    </section>
+
+
+    <!-- ════════════════════════════════════════════════════════
+         PROJECTS
+    ═══════════════════════════════════════════════════════════ -->
+    <section id="projects" class="py-12 border-b border-border">
+      <span class="eyebrow">Projects</span>
+
+      <!-- copy this block for each project -->
+      <div class="entry-wrap"><div class="entry">
+        <p class="text-[11px] text-muted tabular-nums sm:pt-[3px]">2026</p>
+        <div>
+          <p class="font-medium text-fg">F1 Racing with Policy Gradient</p>
+          <p class="text-muted text-[12.5px] mt-1 mb-3 leading-relaxed">
+            Trained an autonomous agent to race an F1 car on a custom continuous MDP
+            (position, velocity → acceleration, steering) using policy gradient methods.
+            Compared MLPs of varying depth and width on convergence speed and lap time.
+            UniMI Reinforcement Learning course (Cesa-Bianchi, Papini, Ferrara).
+          </p>
+          <a href="https://github.com/alek4/rl-car-race" class="lnk text-[12px] font-medium">GitHub ↗</a>
+        </div>
+      </div></div>
+
+      <div class="entry-wrap"><div class="entry">
+        <p class="text-[11px] text-muted tabular-nums sm:pt-[3px]">2026</p>
+        <div>
+          <p class="font-medium text-fg">Hedge vs. AdaHedge</p>
+          <p class="text-muted text-[12.5px] mt-1 mb-3 leading-relaxed">
+            Empirical study of fixed vs. adaptive learning rates in the prediction
+            with expert advice setting. Compared Hedge and AdaHedge (van Erven et al., 2011)
+            across stochastic, adversarial, and low-gap regimes — AdaHedge matched
+            optimal regret without manual rate tuning.
+          </p>
+          <a href="https://github.com/alek4/online-learning-adahedge" class="lnk text-[12px] font-medium">GitHub ↗</a>
+        </div>
+      </div></div>
+
+      <div class="entry-wrap"><div class="entry">
+        <p class="text-[11px] text-muted tabular-nums sm:pt-[3px]">2026</p>
+        <div>
+          <p class="font-medium text-fg">pp-seg</p>
+          <p class="text-muted text-[12.5px] mt-1 mb-3 leading-relaxed">
+            Semantic segmentation project — notebooks and model utilities for
+            training and evaluating segmentation pipelines. Python, Jupyter.
+          </p>
+          <a href="https://github.com/alek4/pp-seg" class="lnk text-[12px] font-medium">GitHub ↗</a>
+        </div>
+      </div></div>
+
+
+    </section>
+
+
+    <!-- ════════════════════════════════════════════════════════
+         CONTACT
+    ═══════════════════════════════════════════════════════════ -->
+    <section id="contact" class="py-12">
+      <span class="eyebrow">Contact</span>
+      <p class="text-fg/65 max-w-xs leading-relaxed">
+        Write to me at
+        <a href="mailto:alessandro.bordonali@studenti.unimi.it" class="lnk font-medium">alessandro.bordonali@studenti.unimi.it</a>.
+        Also on <a href="https://github.com/alek4" class="lnk font-medium">GitHub</a>.
+      </p>
+    </section>
+
+  </div>
+
+
+  <footer class="border-t border-border mt-4">
+    <div class="max-w-2xl mx-auto px-7 sm:px-10 py-5 flex items-center gap-3">
+      <img src="assets/logo.jpg" alt="" class="h-5 w-5 rounded-full opacity-30" />
+      <p class="text-[10.5px] text-muted">&copy; <span id="yr"></span> Alessandro Bordonali</p>
+    </div>
+  </footer>
+
+  <script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+
+</body>
+</html>
